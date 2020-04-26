@@ -4,9 +4,9 @@ import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 List<dynamic> _inputArr = [];
-String _label = 'Wrong Pose';
+String _label = ' ';
 String _labelUp = 'Get Ready!';
-Color _color = Colors.amberAccent;
+Color _color = Colors.green;
 double _percent = 0;
 double _counter = 0;
 
@@ -29,10 +29,31 @@ class BndBox extends StatelessWidget {
     this.customModel,
   });
 
-  void alert(context)
-  {
+  showAlertDialog(BuildContext context) {
 
-  }
+  // set up the button
+  Widget okButton = FlatButton(
+    child: Text("OK"),
+    onPressed: () { },
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("My title"),
+    content: Text("This is my message."),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
 
 
   @override
@@ -94,7 +115,8 @@ class BndBox extends StatelessWidget {
 
         if (_counter >= 1.0) {
           _counter = 1.0;
-          Navigator.pop(context);
+          showAlertDialog(context);
+         // Navigator.pop(context);
           _counter = 0.0;
 
           

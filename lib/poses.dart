@@ -17,8 +17,7 @@ class Poses extends StatelessWidget {
 
   const Poses({this.cameras, this.title, this.model, this.asanas, this.color});
 
-
-
+  
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +73,8 @@ class Poses extends StatelessWidget {
       ),
     );
   }
+
+
 
 
 }

@@ -28,11 +28,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User user = User();
+                  Auth auth = Auth();
+              auth.signOut();
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Yoga Guru'),
+        title: Text('QuarantineYoga'),
         centerTitle: true,
         actions: <Widget>[
           GestureDetector(
@@ -216,11 +218,11 @@ class _CircleProfileImageState extends State<CircleProfileImage> {
       child: Center(
         child: CircleAvatar(
           radius: 15,
-          backgroundImage: user.photoUrl.isEmpty
-              ? AssetImage(
+          backgroundImage: //user.photoUrl.isEmpty?
+           AssetImage(
                   'assets/images/profile-image.png',
                 )
-              : NetworkImage(user.photoUrl),
+             // : NetworkImage(user.photoUrl),
         ),
       ),
     );

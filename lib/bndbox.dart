@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+
 
 List<dynamic> _inputArr = [];
 String _label = ' ';
@@ -29,31 +29,6 @@ class BndBox extends StatelessWidget {
     this.customModel,
   });
 
-  showAlertDialog(BuildContext context) {
-
-  // set up the button
-  Widget okButton = FlatButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("My title"),
-    content: Text("This is my message."),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
 
 
   @override
@@ -61,6 +36,7 @@ class BndBox extends StatelessWidget {
 
     List<Widget> _renderKeypoints() {
       var lists = <Widget>[];
+     // showAlertDialog(context);
 
       results.forEach((re) {
         var list = re["keypoints"].values.map<Widget>((k) {
@@ -114,20 +90,25 @@ class BndBox extends StatelessWidget {
         }).toList();
 
         if (_counter >= 1.0) {
-          _counter = 1.0;
-          showAlertDialog(context);
-         // Navigator.pop(context);
+          _counter = 0.0;
+          //_counter = 1.0;
+          //showAlertDialog(context);
+          Navigator.pop(context);
           _counter = 0.0;
 
           
         } 
-        // print("Input Arr: " + _inputArr.toList().toString());
-        _getPrediction(_inputArr.cast<double>().toList(), context);
+        else{
+            _getPrediction(_inputArr.cast<double>().toList(), context);
 
         _inputArr.clear();
         // print("Input Arr after clear: " + _inputArr.toList().toString());
 
         lists..addAll(list);
+
+        }
+        // print("Input Arr: " + _inputArr.toList().toString());
+      
         
       });
       return lists;

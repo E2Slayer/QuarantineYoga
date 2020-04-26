@@ -165,7 +165,7 @@ class _LoginState extends State<Login> {
   }
 
   void _login() async {
-    Navigator.of(context).pop();
+    //Navigator.of(context).pop();
     Auth auth = Auth();
     try {
       if (_loginFormKey.currentState.validate()) {

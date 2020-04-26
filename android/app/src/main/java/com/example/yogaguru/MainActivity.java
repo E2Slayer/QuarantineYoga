@@ -1,4 +1,4 @@
-package com.example.yogaguru;
+package com.example.quarantineyoga;
 
 import org.tensorflow.lite.Interpreter;
 import android.os.Bundle;

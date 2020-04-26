@@ -29,7 +29,7 @@ class YogaCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Image.asset(
-              "assets/poses/" + asana + ".png",
+              "assets/poses/" + asana + ".jpg",
               fit: BoxFit.contain,
             ),
           ),

@@ -1,8 +1,11 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:quarantineyoga/inference.dart';
-import 'package:quarantineyoga/yoga_card.dart';
+import 'package:yoga_guru/inference.dart';
+import 'package:yoga_guru/yoga_card.dart';
+
+
+
 
 class Poses extends StatelessWidget {
   final List<CameraDescription> cameras;
@@ -10,15 +13,19 @@ class Poses extends StatelessWidget {
   final String model;
   final List<String> asanas;
   final Color color;
+  static bool firstRun = false;
 
   const Poses({this.cameras, this.title, this.model, this.asanas, this.color});
+
+
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.amberAccent[300],
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.amberAccent[300],
         centerTitle: true,
         title: Text(title),
       ),
@@ -54,6 +61,7 @@ class Poses extends StatelessWidget {
   }
 
   void _onSelect(BuildContext context, String customModelName) async {
+    firstRun = true;
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -66,4 +74,6 @@ class Poses extends StatelessWidget {
       ),
     );
   }
+
+
 }

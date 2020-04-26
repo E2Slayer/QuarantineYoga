@@ -1,14 +1,13 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:quarantineyoga/login.dart';
-import 'package:quarantineyoga/poses.dart';
-import 'package:quarantineyoga/profile.dart';
-import 'package:quarantineyoga/scale_route.dart';
-import 'package:quarantineyoga/size_route.dart';
-import 'package:quarantineyoga/util/pose_data.dart';
-import 'package:quarantineyoga/util/auth.dart';
-import 'package:quarantineyoga/util/user.dart';
-//import 'package:quarantineyoga/'
+import 'package:yoga_guru/login.dart';
+import 'package:yoga_guru/poses.dart';
+import 'package:yoga_guru/profile.dart';
+import 'package:yoga_guru/scale_route.dart';
+import 'package:yoga_guru/size_route.dart';
+import 'package:yoga_guru/util/pose_data.dart';
+import 'package:yoga_guru/util/auth.dart';
+import 'package:yoga_guru/util/user.dart';
 
 class Home extends StatelessWidget {
   final String email;
@@ -28,13 +27,11 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User user = User();
-                  Auth auth = Auth();
-              auth.signOut();
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        title: Text('QuarantineYoga'),
+        backgroundColor: Colors.purpleAccent[500],
+        title: Text('Quarantine Yoga'),
         centerTitle: true,
         actions: <Widget>[
           GestureDetector(
@@ -79,11 +76,11 @@ class Home extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(32.0),
                 child: Text(
-                  'Welcome\n${user.displayName}',
+                  'Welcome to \nQuarantine Yoga!\nPlease, press the button',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 26,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
               ),
@@ -98,9 +95,9 @@ class Home extends StatelessWidget {
                     borderRadius: BorderRadius.circular(30),
                   ),
                   child: FlatButton(
-                    color: Colors.green,
+                    color: Colors.deepPurpleAccent,
                     child: Text(
-                      'Beginner',
+                      'Start Yoga',
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -108,14 +105,16 @@ class Home extends StatelessWidget {
                     ),
                     onPressed: () => _onPoseSelect(
                       context,
-                      'Beginner',
+                      'Select Yoga a Pose',
                       beginnerAsanas,
-                      Colors.green,
+                      Colors.purpleAccent[300],
                     ),
                   ),
                 ),
               ),
 
+
+/*
               // Intermediate Button
               Padding(
                 padding: const EdgeInsets.all(32.0),
@@ -171,6 +170,7 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
+              */
             ],
           ),
         ),
@@ -218,11 +218,10 @@ class _CircleProfileImageState extends State<CircleProfileImage> {
       child: Center(
         child: CircleAvatar(
           radius: 15,
-          backgroundImage: //user.photoUrl.isEmpty?
-           AssetImage(
+          backgroundImage: AssetImage(
                   'assets/images/profile-image.png',
                 )
-             // : NetworkImage(user.photoUrl),
+            
         ),
       ),
     );

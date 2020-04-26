@@ -1,12 +1,10 @@
 List<String> beginnerAsanas = [
   'Trikonasana',
   'Vrikshasana',
-  'Virbhadrasana',
-  'Bhujangasana',
-  'Sukhasana',
-  'Tadasana'
+  'Virbhadrasana'
 ];
 
+/*
 List<String> intermediateAsanas = [
   'Dhanurasana',
   'Padhastasana',
@@ -20,3 +18,4 @@ List<String> advanceAsanas = [
   'Mayurasana',
   'Sirsasana',
 ];
+*/

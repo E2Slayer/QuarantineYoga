@@ -1,13 +1,9 @@
 # This is a generated file; do not edit or check into version control.
-camera=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\camera-0.5.7+4\\
-cloud_firestore=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.12.11\\
-firebase_auth=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_auth-0.14.0+9\\
-firebase_core=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.4+3\\
-firebase_core_web=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_core_web-0.1.1+2\\
-firebase_storage=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_storage-3.1.5\\
-flutter_plugin_android_lifecycle=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\flutter_plugin_android_lifecycle-1.0.7\\
-image_picker=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\image_picker-0.6.5+2\\
-shared_preferences=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\shared_preferences-0.5.7\\
-shared_preferences_macos=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\shared_preferences_macos-0.0.1+7\\
-shared_preferences_web=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\shared_preferences_web-0.1.2+4\\
-tflite=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\tflite-1.0.5\\
+camera=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\camera-0.5.5+1\\
+cloud_firestore=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\cloud_firestore-0.12.9+5\\
+firebase_auth=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_auth-0.14.0+5\\
+firebase_core=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_core-0.4.0+9\\
+firebase_storage=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\firebase_storage-3.0.6\\
+image_picker=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\image_picker-0.6.1+10\\
+shared_preferences=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\shared_preferences-0.5.3+4\\
+tflite=C:\\Users\\start\\AppData\\Roaming\\Pub\\Cache\\hosted\\pub.dartlang.org\\tflite-1.0.4\\

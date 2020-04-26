@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 List<dynamic> _inputArr = [];
 String _label = 'Wrong Pose';
+String _labelUp = 'Get Ready!';
+Color _color = Colors.amberAccent;
 double _percent = 0;
 double _counter = 0;
 
@@ -26,10 +29,18 @@ class BndBox extends StatelessWidget {
     this.customModel,
   });
 
+  void alert(context)
+  {
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
+
     List<Widget> _renderKeypoints() {
       var lists = <Widget>[];
+
       results.forEach((re) {
         var list = re["keypoints"].values.map<Widget>((k) {
           var _x = k["x"];
@@ -81,13 +92,21 @@ class BndBox extends StatelessWidget {
           );
         }).toList();
 
+        if (_counter >= 1.0) {
+          _counter = 1.0;
+          Navigator.pop(context);
+          _counter = 0.0;
+
+          
+        } 
         // print("Input Arr: " + _inputArr.toList().toString());
-        _getPrediction(_inputArr.cast<double>().toList());
+        _getPrediction(_inputArr.cast<double>().toList(), context);
 
         _inputArr.clear();
         // print("Input Arr after clear: " + _inputArr.toList().toString());
 
         lists..addAll(list);
+        
       });
       return lists;
     }
@@ -100,11 +119,22 @@ class BndBox extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(32.0, 0, 32.0, 16.0),
             child: Text(
+              _labelUp.toString(),
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: _color,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(32.0, 0, 32.0, 16.0),
+            child: Text(
               _label.toString(),
               style: TextStyle(
                 fontSize: 50,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: _color,
               ),
             ),
           ),
@@ -118,7 +148,7 @@ class BndBox extends StatelessWidget {
               percent: _counter,
               center: Text("${(_counter * 100).toStringAsFixed(1)} %"),
               linearStrokeCap: LinearStrokeCap.roundAll,
-              progressColor: Colors.green,
+              progressColor: Colors.amberAccent,
             ),
           ),
         ],
@@ -129,7 +159,7 @@ class BndBox extends StatelessWidget {
     ]);
   }
 
-  Future<void> _getPrediction(List<double> poses) async {
+  Future<void> _getPrediction(List<double> poses, context) async {
     try {
       final double result = await platform.invokeMethod('predictData', {
         "model": customModel,
@@ -137,8 +167,34 @@ class BndBox extends StatelessWidget {
       }); // passing arguments
 
       _percent = result;
-      _label =
-          result < 0.5 ? "Wrong Pose" : (result * 100).toStringAsFixed(0) + "%";
+
+      if(result < 0.3)
+      {
+        _labelUp = "Cheer Up!";
+        _color = Colors.red;
+
+
+      }
+      else if(result < 0.5)
+      {
+        _labelUp = "Getting Better!";
+        _color = Colors.red;
+
+      }
+      else if(result < 0.8)
+      {
+        _labelUp = "Doing Good !!";
+        _color = Colors.lightBlue;
+
+      }
+      else if(result <= 1.5)
+      {
+        _labelUp = "Excellent!";
+        _color = Colors.green;
+
+      }
+
+      _label = (result * 100).toStringAsFixed(0) + "%";
       updateCounter(_percent);
 
       print("Final Label: " + result.toString());
@@ -148,7 +204,7 @@ class BndBox extends StatelessWidget {
   }
 
   void updateCounter(perc) {
-    if (perc > 0.5) {
+    if (perc > 0.5 && _counter < 1.0) {
       (_counter += perc / 100) >= 1 ? _counter = 1.0 : _counter += perc / 100;
     }
     print("Counter: " + _counter.toString());

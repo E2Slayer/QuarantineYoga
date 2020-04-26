@@ -2,9 +2,9 @@ import 'package:camera/camera.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:quarantineyoga/home.dart';
-import 'package:quarantineyoga/register.dart';
-import 'package:quarantineyoga/util/auth.dart';
+import 'package:yoga_guru/home.dart';
+import 'package:yoga_guru/register.dart';
+import 'package:yoga_guru/util/auth.dart';
 
 class Login extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -63,7 +63,7 @@ class _LoginState extends State<Login> {
                 Container(
                   padding: const EdgeInsets.only(top: 32.0),
                   child: Image(
-                    image: AssetImage('assets/images/yoga1.png'),
+                    image: AssetImage('assets/images/qYogaLogo.png'),
                   ),
                 ),
 
@@ -165,6 +165,7 @@ class _LoginState extends State<Login> {
   }
 
   void _login() async {
+    Navigator.of(context).pop();
     Auth auth = Auth();
     try {
       if (_loginFormKey.currentState.validate()) {
